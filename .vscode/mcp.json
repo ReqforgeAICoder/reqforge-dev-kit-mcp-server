@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "reqforge": {
+      "command": "/home/michael/Documents/dev/reqforge_ai_saas/reqforge-dev-kit/reqforge-agent-mcp/.venv/bin/python",
+      "args": [
+        "mcp_server/reqforge_mcp_server.py"
+      ],
+      "cwd": "/home/michael/Documents/dev/reqforge_ai_saas/reqforge-dev-kit/reqforge-agent-mcp"
+    }
+  }
+}
