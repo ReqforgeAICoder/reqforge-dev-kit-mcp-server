@@ -49,21 +49,30 @@ The MCP server provides this capability as an **AI Tool**.
 
 # Architecture
 
-```
-AI Client (VS Code / Claude / Cursor)
-          │
-          │ MCP Protocol (stdio)
-          ▼
-ReqForge MCP Server
-          │
-          │ HTTPS
-          ▼
-ReqForge API (Azure API Management)
-          │
-          ▼
-ReqForge AI Agent
-```
+```mermaid
 
+flowchart LR
+
+PersonDev[Developer]
+
+subgraph Container: IDE
+AIClient[AI Client<br/>VS Code / Claude / Cursor]
+end
+
+subgraph Container: Local Runtime
+MCPServer[ReqForge MCP Server<br/>Python MCP Adapter]
+end
+
+subgraph Container: Cloud
+ReqForgeAPI[ReqForge API<br/>Azure API Management]
+ReqForgeAgent[ReqForge AI Agent<br/>Requirements Analysis Engine]
+end
+
+PersonDev --> AIClient
+AIClient -- MCP Protocol (stdio) --> MCPServer
+MCPServer -- HTTPS --> ReqForgeAPI
+ReqForgeAPI --> ReqForgeAgent
+```
 ---
 
 # Repository Structure
@@ -304,12 +313,9 @@ AI-powered requirements engineering.
 
 Website:
 
-```
-https://reqforge.ai
-```
+reqforge.ai
+
 
 API access:
 
-```
 info@reqforge.ai
-```
